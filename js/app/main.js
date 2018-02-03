@@ -5,7 +5,26 @@
 let data = [1, 2, 3];
 let circleredii = [50, 40, 30, 20, 10];
 let circleColors = ["red", "green", "purple", "yellow", "blue"];
-let spaceCircles = [30, 70, 110];
+let JsonSpaceCircles = [
+    {
+        "x_axis": 30,
+        "y_axis": 30,
+        "radius": 25,
+        "color": "red"
+    },
+    {
+        "x_axis": 70,
+        "y_axis": 70,
+        "radius": 25,
+        "color": "green"
+    },
+    {
+        "x_axis": 110,
+        "y_axis": 110,
+        "radius": 25,
+        "color": "purple"
+    }
+];
 
 /**
  * Binding data to elements
@@ -55,17 +74,19 @@ circleContainer = d3.select("body")
     .style("border", "1px solid black");
 
 circles = circleContainer.selectAll("circle")
-    .data(spaceCircles)
+    .data(JsonSpaceCircles)
     .enter()
     .append("circle");
 
 circles.attr("cx", function (d) {
-    return d;
+    return d.x_axis;
 })
     .attr("cy", function (d) {
-        return d;
+        return d.y_axis;
     })
-    .attr("r", 25)
-    .style("fill", function (d, i) {
-        return circleColors[i];
+    .attr("r", function (d) {
+        return d.radius;
+    })
+    .style("fill", function (d) {
+        return d.color;
     })
