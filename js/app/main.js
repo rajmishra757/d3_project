@@ -90,3 +90,82 @@ circles.attr("cx", function (d) {
     .style("fill", function (d) {
         return d.color;
     })
+
+/**
+ * Creating an SVG circle
+ */
+let svgContainer = d3.select("body")
+    .append("p")
+    .append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+
+svgContainer.append("circle")
+    .attr("cx", 50)
+    .attr("cy", 50)
+    .attr("r", 50);
+
+/**
+ * Creating an SVG square
+ */
+svgContainer = d3.select("body")
+    .append("p")
+    .append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+
+svgContainer.append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 100)
+    .attr("height", 100)
+    .style("fill", "green");
+
+/**
+ * Creating an SVG rectangle
+ */
+svgContainer = d3.select("body")
+    .append("p")
+    .append("svg")
+    .attr("width", 50)
+    .attr("height", 100);
+
+svgContainer.append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 50)
+    .attr("height", 100)
+    .style("fill", "green");
+
+/**
+ * Creating an SVG ellipse
+ */
+svgContainer = d3.select("body")
+    .append("p")
+    .append("svg")
+    .attr("width", 50)
+    .attr("height", 30);
+
+svgContainer.append("ellipse")
+    .attr("cx", 25)
+    .attr("cy", 15)
+    .attr("rx", 25)
+    .attr("ry", 15)
+    .style("fill", "red");
+
+/**
+ * Creating an SVG line
+ */
+svgContainer = d3.select("body")
+    .append("p")
+    .append("svg")
+    .attr("width", 100)
+    .attr("height", 100);
+
+svgContainer.append("line")
+    .attr("x1", 0)
+    .attr("y1", 0)
+    .attr("x2", 100)
+    .attr("y2", 100)
+    .attr("stroke", "blue")
+    .attr("stroke-width", 5);
