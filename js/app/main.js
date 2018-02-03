@@ -25,6 +25,13 @@ let JsonSpaceCircles = [
         "color": "purple"
     }
 ];
+let lineData = [
+    { "x": 0, "y": 10 },
+    { "x": 15, "y": 5 },
+    { "x": 30, "y": 20 },
+    { "x": 40, "y": 10 },
+    { "x": 45, "y": 15 }
+];
 
 /**
  * Binding data to elements
@@ -90,3 +97,45 @@ circles.attr("cx", function (d) {
     .style("fill", function (d) {
         return d.color;
     })
+
+/**
+ * Creating an SVG path (Line)
+ */
+
+let lineFunction = d3.svg.line()
+    .x(function (d) {
+        return d.x;
+    })
+    .y(function (d) {
+        return d.y;
+    })
+    .interpolate("linear");
+/**
+ * linear, step-before, step-after,
+ * basis, basis-closed, bundle,
+ * cardinal, cardinal-open, cardinal-closed,
+ * monotone
+ */
+
+let svgContainer = d3.select("body")
+    .append("p")
+    .append("svg")
+    .attr("width", 50)
+    .attr("height", 25);
+
+svgContainer.append("path")
+    .attr("d", lineFunction(lineData))
+    .attr("stroke", "red")
+    .attr("stroke-width", 2)
+    .style("fill", "none");
+/**
+ * d3.svg.line - create a new line generator
+ * d3.svg.line.radial - create a new radial line generator
+ * d3.svg.area - create a new area generator
+ * d3.svg.area.radial - create a new radial area generator
+ * d3.svg.arc - create a new arc generator
+ * d3.svg.symbol - create a new symbol generator
+ * d3.svg.chord - create a new chord generator
+ * d3.svg.diagonal - create a new diagonal generator
+ * d3.svg.diagonal.radial - create a new radial diagonal generator
+ */
